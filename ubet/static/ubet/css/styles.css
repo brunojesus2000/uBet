@@ -1,0 +1,482 @@
+/**
+ * uBet Stylesheet
+ * version 1.0
+ * last update: 23/04/2016;
+ */
+
+html {
+	min-height: 100vh;
+	overflow-y: scroll;
+	text-align: justify;
+}
+
+body {
+	background-color: rgba(59,89,152,1);
+}
+
+nav ul a:hover {
+	background-color: rgba(0,0,0,0);
+}
+
+nav ul {
+	height: inherit;
+}
+
+@media (max-width: 620px) {
+	.container.mobile-container {
+		width: 100%;
+	}
+}
+
+/* ***********************
+	  	 STRUCTURE
+   *********************** */
+
+/* 0. Utilities */
+
+.clear { clear: both; }
+.hidden { display: none; }
+.container { width: 85%; max-width: 900px; }
+.helptext { color: red; }
+
+.ubet-btn {
+	background-color: rgb(59,89,152);
+}
+
+.ubet-btn:hover {
+	background-color: rgb(109,132,180);
+}
+
+.ubet-floating {
+	background-color: rgba(255,255,255,0.8);
+	color: rgb(59,89,152);
+	transition: 0.2s;
+}
+
+.ubet-floating:hover {
+	background-color: rgba(255,255,255,1);
+}
+
+/* 1. Navbar */
+nav {
+	background-color: rgb(59,89,152);
+	max-height: 64px;	
+}
+
+.nav-wrapper {
+	margin: 0 auto;	
+}
+
+.nav-wrapper ul li:first-child {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.nav-wrapper ul li a: {
+	transition: 0.2s;
+}
+
+.nav-wrapper ul li a:hover {
+	background-color: rgb(109,132,180);
+}
+
+.nav-collapse {
+	margin-left: 0.7em;
+	cursor: pointer;
+}
+
+#nav-mobile li:first-child { padding: 0 30px; color: black; }
+#nav-mobile li { display: block; }
+
+.button-collapse {
+	cursor: pointer;
+	margin-left: 0.9em;
+}
+
+.notifications {
+	margin-right: 0.9em;
+	cursor: pointer;
+}
+.notifications i {
+	max-height: 60px;
+}
+
+@media (min-width: 992px) {
+}
+
+
+/* 2. Forms */
+.form-wrapper { 
+	position: relative; 
+	min-height: 100vh;
+	padding: 1em;
+	background-color: rgb(255,255,255);
+}
+.form-wrapper h1 {
+	margin: 0; 
+	margin-bottom: 1em;
+	color: black;
+	
+}
+.form-wrapper .form {
+	max-width: 350px;
+	margin: 0 auto;
+	padding: 10px;
+	
+}
+
+.form label { color: black; }
+
+.form input { 
+	color: rgb(0,0,0); 
+	border: none; 
+	border-bottom: 2px solid rgb(175,189,212); 
+}
+
+.form input:focus:not([readonly]) { 
+	border-bottom: 2px solid rgb(59,89,152); 
+	box-shadow: 0 0 0 0 rgb(59,89,152);
+}
+.form input[type="submit"] { 
+	background-color: rgb(59,89,152);
+	color: rgb(255,255,255);
+	border-bottom: none;
+	border-radius: 15px; 
+	box-shadow: none;
+	width: 50%;
+	margin: 0 auto;
+	display: block;
+	transition: 0.5s;
+}
+
+.form input[type="submit"]:active {
+	background-color: rgb(255,255,255);
+}
+
+.form p {
+	margin: 0;
+	margin-top: 1.5em;
+	text-align: justify;
+}
+
+.form .btn-flat {
+	margin-top: 1em;
+	color: rgb(0,0,0);
+}
+
+.errorlist {
+	color: red;
+}
+
+.register-text { margin-top: 2em; color: rgb(0,0,0); text-align: center !important; }
+.register-text a { color: rgb(59,89,152);   }
+#login-title { margin-top: 1em; }
+
+/* 2. Datepicker */
+#signup-form .picker__date-display {
+	background-color: rgb(68,55,79);
+}
+#signup-form .picker__weekday-display {
+	background-color: rgba(0,0,0,0.2);
+}
+#signup-form .picker__footer .btn-flat {
+	color: rgb(68,55,79);
+}
+#signup-form .picker__day--today { color: rgb(68,55,79); font-weight: bold; }
+#signup-form .picker__day--selected {
+	background-color: rgb(68, 55, 79);
+	color: white;
+}
+
+/* 3. Group List */
+#group-list-controller {
+	padding: 0;
+	background-color: white;
+}
+#group-list-controller .row { 
+	margin-bottom: 0;
+}
+#group-list-controller a[type="button"] { 
+	padding: 0;
+	border-radius: 0; 
+	color: black; 
+}
+
+#group-list-controller div.row div.btn-flat {
+	border-radius: 0;
+	text-align: center;
+	cursor: initial;
+}
+
+#group-list-controller div.row div.btn-flat.active  { 
+	font-weight: bold; 
+	border-bottom: 2px solid rgb(59,89,152);
+}
+
+#group-list-wrapper {
+	background-color: rgb(255,255,255);
+	min-height: 100vh;	
+}
+
+#group-list-wrapper p { margin: 0; }
+
+#group-list .card-panel { position: relative; cursor: pointer; }
+
+#group-list-wrapper a.btn-flat {
+	background-color: rgb(59,89,152);
+	color: rgb(255,255,255);
+	padding: 0 1rem;
+	margin-right: 1.5em;
+	margin-bottom: 0.85em;
+}
+
+#group-list-wrapper .ubet-btn {
+	text-align: center;
+	margin-top: 0.5em;
+}
+#group-list-wrapper .group-list {
+	padding-top: 1em;
+}
+
+.fixed-action-btn a.ubet-btn {
+	color: rgb(255,255,255);
+}
+
+.group-info h5 { margin-top: 0; }
+.group-options {
+	position: absolute;
+	bottom: 10%;
+	right: 0%;
+}
+
+@media (max-width: 600px) {
+	#group-list-controller .row { width: 100%; }
+	#group-list-wrapper { width: 93%; }
+}
+
+/* 4. Group Profile */
+#group-data { 
+	position: relative;
+	background-color: rgb(255,255,255);
+	min-height: 100vh;
+}
+
+#group-data h5 {
+	margin: 0;
+}
+#group-data .status {
+	font-size: 1em;
+	margin: 0;
+	font-style: italic;
+}
+
+#group-data .collection, #group-data .collection-item {
+	max-width: 350px;
+}
+
+#group-data .btn {
+	width: 70%;
+	max-width: 300px;
+}
+#group-data .btn.disabled {
+	border-bottom: none;
+	border-radius: 15px; 
+	box-shadow: none;
+	margin: 0 auto;
+	display: block;
+	transition: 0.5s;
+}
+
+#group-data .container {
+	padding-top: 1em;
+}
+
+#group-data .collection, #group-data .collection .collection-item {
+	border: none;
+}
+
+#group-data .collection .collection-item.active {
+	background-color: rgb(109,132,180);
+	color: white;
+}
+
+.toll {
+	position: absolute;
+	margin: 0;
+	top: 2%;
+	right: 10%;
+}
+
+.members {
+	position: absolute;
+	margin: 0;
+	top: 5.5%;
+	right: 10%;
+}
+
+.toll i, .members i {
+	vertical-align: bottom;
+}
+
+@media (min-width: 601px) {
+	#group-data h5 { font-size: 4em; }
+	#group-data .status { font-size: 2em; }
+	
+	.toll {
+		font-size: 4em;
+		top: 4%;
+		right: 5%;
+	}
+	.toll i { font-size: 1.5em; }
+
+	.members { 
+		font-size: 4em; 
+		top: 18%;
+		right: 5%;
+	}
+	.members i {
+		font-size: 1.5em;
+	}
+}
+
+/* 5. Bet Page */
+#bet-info { 
+	margin: 0; 
+	min-height: 100vh;
+}
+#bet-info p { margin: 0; margin-bottom: 1em;}
+#bet-info label::before { display: none; }
+#bet-info label {
+	margin: 0 auto; 
+	width: 100%;
+	max-width: 400px;
+	background-color: rgb(175,189,212); 
+	display: block;
+	padding-left: 0;
+	padding-right: 0;
+	position: static;
+	color: white;
+}
+#bet-info label.btn::after {
+	display: none;
+}
+#bet-info input[type="radio"] { padding: 0; display: hidden; }
+#bet-info input[type="radio"]:checked + label {
+	background-color: rgb(59,89,152);
+}
+#bet-info .input-field {
+	position: static;
+}
+#bet-info .form a {
+	width: 100%;
+	text-align: center;
+	color: rgb(68,55,79);
+}
+#bet-options input[type="submit"] {
+	width: 100%;
+	max-width: 200px;
+}
+#bet-options input.btn {
+	margin-top: 2em;
+}
+
+
+/* 6. User Profile */
+#user-profile {
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	height: 100%;
+	background-color: white;
+}
+#user-profile h5 { 
+	margin: 0;
+	font-weight: bold;
+	padding-top: 0.7em; 
+	padding-bottom: 0.5em;
+}
+
+#user-profile h5:first-child {
+	padding-top: 1em;
+	padding-bottom: 0;
+}
+
+#user-profile h5 a {
+	font-weight: normal;
+	font-size: 0.5em;
+	display: inline-block;
+}
+
+#user-profile .ubet-btn {
+	margin-bottom: 1em;
+}
+
+.collection li.collection-item a {
+	color: rgb(59,89,152);
+	transition: 0.3s;
+}
+.collection li.collection-item a:active {
+	background-color: rgb(59,89,152);
+}
+
+li.collection-item a i {
+	vertical-align: text-bottom;
+	margin-left: 0.3em;
+}
+li.collection-item a {
+	font-size: 1.3em;
+}
+li.collection-item a span {
+	float: right;
+	font-size: 1.15em;
+}
+li.collection-item a p {
+	margin: 0;
+	display: inline-block;
+	float: right;
+}
+.collection-card .collection-card-title, .collection-card .collection-card-info {
+
+	display: block;
+	width: 100%;
+}
+.collection-card .collection-card-info i:first-child {
+	margin-left: 0;	
+}
+.collection-card-info {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.history-collection {
+	margin-bottom: 1em;
+}
+
+/* 7. Group History */
+#user-history {
+	background-color: rgb(255,255,255);
+	min-height: 100vh;
+}
+ul.pagination {
+	margin: 0;
+	padding-top: 1em;
+}
+ul.pagination li:first-child, ul.pagination li:last-child {
+	padding: 0;
+}
+ul.pagination li.active {
+	background-color: rgb(59,89,152);
+	color: rgb(255,255,255);
+}
+/* 8. ReCaptcha */
+
+.g-recaptcha div div {
+	margin: 0 auto;
+}
+
+.g-recaptcha div div iframe {
+	height: 95px;
+}
+.g-recaptcha .rc-anchor-alert {
+	color: yellow;
+}

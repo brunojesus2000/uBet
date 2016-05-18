@@ -1,0 +1,9 @@
+*~
+ubet/migrations/*
+db.sqlite3
+*.zip
+*.log
+venv
+*.pyc
+staticfiles
+.env

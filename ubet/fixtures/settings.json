@@ -1,0 +1,12 @@
+
+[
+  {
+    "model": "ubet.Admin_settings",
+    "pk": 1,
+    "fields": {
+      "group_max_capacity": 10,
+      "time_to_expire"    : 30,
+      "win_tax" : 0.04
+    }
+  }
+]

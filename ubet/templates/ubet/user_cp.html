@@ -1,0 +1,99 @@
+{% extends "ubet/base.html" %}
+{% load i18n %}
+{% load l10n %}
+{% load tz %}
+{% block page_title %} {% trans "My profile" %} {% endblock %}
+
+{% block main_content %}
+	<div id="user-profile">
+		<div class="container">
+			<h5>{% trans "Hello" %}, {{ user }}!</h5>
+
+			<ul>
+				<li><strong>{% trans 'Full name' %}:</strong> {{ user.first_name }}</li>
+				<li><strong>{% trans 'E-mail' %}:</strong> {{ user.email }}</li>
+				<li><strong>{% trans 'Birthdate' %}:</strong> {{ user.ubet_user.date_of_birth }}</li>
+				<li><strong>{% trans 'Date Joined' %}:</strong> {{ datejoined }}</li>
+			</ul>
+
+			<p><strong>{% trans 'Credits' %}:</strong> {{ user.ubet_user.creditos }}</p>
+
+			<button type="button" data-target="contact-admin" class="btn ubet-btn modal-trigger">{% trans "Deposit and Withdrawal" %}</button>
+			
+			<div class="divider"></div>
+
+			{% if notification %}
+				<h5>{% trans 'Recent results' %}</h5>
+
+				<ul class="collection">
+					{% for n in notification %}
+						<li class="collection-item">
+							<a href="{% url 'notification' n.id %}"  >
+								{{ n.group.name }}
+
+								<span>
+									{% if n.group.winner %} 
+										<i class="material-icons">star</i>
+										 {{ n.group.winner }}
+									{% else %}
+										{% trans "Canceled" %}
+									{% endif %}
+
+								</span>
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+
+				<div class="divider"></div>
+			{% endif %}
+			
+			<h5>{% trans 'History' %} <a href="{% url 'group_log' %}">({% trans "view complete history" %})</a></h5> 
+
+			{% if user_groups %}
+				<table class="striped responsive-table">
+					<thead>
+						<tr>
+							<th data-field="id">{% trans "Group" %}</th>
+							<th data-field="creation-date">{% trans "Date" %}</th>
+							<th data-field="creation-time">{% trans "Time" %}</th>
+							<th data-field="group-members">{% trans "Users" %}</th>
+							<th data-field="winner">{% trans "Winner" %}</th>
+							<th data-field="bet-value">{% trans "Bet Value" %}</th>
+							<th data-field="prize">{% trans "Total Prize" %}</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for g in user_groups|slice:":10" reversed %}
+							<tr>
+								<td><a href="{% url 'group_info' g.id %}">{{ g.name }}</a></td>
+								<td>{{ g.date_of_birth|localtime|date:"SHORT_DATE_FORMAT" }}</td>
+								<td>{{ g.date_of_birth|date:"H:i" }}</td>
+								<td>{{ g.cur_size }}</td>
+								<td>{{ g.winner }}</td>
+								<td>{{ g.bet_value }}</td>
+								<td>{{ g.get_prize }}</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			{% else %}
+				<p>{% trans "You never took part in a group. Why don't you " %}<a href="{% url 'list_waiting' %}"> {% trans "start now?" %}</a></p>
+			{% endif %}
+		</div>
+	</div>
+
+	{% block fab %} {% endblock fab %} 
+
+	<div id="contact-admin" class="modal">
+		<div class="modal-content">
+			<h5>{% trans "Deposits and Withdrawals" %}</h5>
+
+			<p>{% trans "To deposit credits or to withdraw your credits, please send and e-mail to " %} <a href="mailto:placeholder@email.com">placeholder@email.com</a> {% trans "informing the desired operation in the subject and the number of credits in the body of the message." %}</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-action modal-close waves-effect btn-flat">{% trans "Close" %}</a>
+		</div>
+	</div>
+{% endblock main_content %}
+
